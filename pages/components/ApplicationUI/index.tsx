@@ -13,8 +13,6 @@ const ApplicationUI = () => {
     if (todoName) {
       setTodo([...todo, todoName]);
       setTodoName("");
-    } else {
-      alert("Preencha o campo");
     }
   };
 
@@ -32,7 +30,11 @@ const ApplicationUI = () => {
             setTodoName(e.target.value);
           }}
         />
-        <button onClick={handleAddTodo} className={styles.addTodoButton}>
+        <button
+          style={todoName ? { cursor: "pointer" } : { cursor: "not-allowed" }}
+          onClick={handleAddTodo}
+          className={styles.addTodoButton}
+        >
           Adicionar
         </button>
 
